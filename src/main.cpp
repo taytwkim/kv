@@ -1,5 +1,6 @@
 #include "store.hpp"
 #include "command.hpp"
+#include "response.hpp"
 #include "log.hpp"
 #include <iostream>
 
@@ -25,19 +26,8 @@ int main() {
 
         if (response.status == ResponseStatus::OK) {
             log_append(log_file, command);
-            std::cout << "OK";
-            
-            if (response.result.has_value()) {
-                std::cout << ": " << response.result.value();
-            }
-            std::cout << "\n";
         }
-        else if (response.status == ResponseStatus::NotFound) {
-            std::cout << "Not Found\n";
-        }
-        else if (response.status == ResponseStatus::Error) {
-            std::cout << "Error\n";
-        }
+        std::cout << response_to_string(response) << "\n";
     }
     return 0;
 }
