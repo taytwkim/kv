@@ -1,5 +1,5 @@
-#include <sstream>
 #include "command.hpp"
+#include <sstream>
 
 Command parse_command(const std::string& request_string) {
     std::istringstream iss(request_string);

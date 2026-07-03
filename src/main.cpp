@@ -1,9 +1,12 @@
-#include <iostream>
 #include "store.hpp"
 #include "command.hpp"
+#include "log.hpp"
+#include <iostream>
 
 int main() {
+    const std::string log_file = "store.log";
     KV_Store kv;
+    log_replay(log_file, kv);
     std::string line;
 
     while (true) {
@@ -21,6 +24,7 @@ int main() {
         Response response = apply_command(kv, command);
 
         if (response.status == ResponseStatus::OK) {
+            log_append(log_file, command);
             std::cout << "OK";
             
             if (response.result.has_value()) {

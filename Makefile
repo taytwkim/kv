@@ -1,7 +1,7 @@
 CXX = clang++
 CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
 
-SRC = src/main.cpp src/store.cpp src/command.cpp
+SRC = src/main.cpp src/store.cpp src/command.cpp src/log.cpp
 TARGET = store
 
 .PHONY: all run clean
