@@ -1,7 +1,7 @@
 #pragma once
 
-#include "store.hpp"
 #include "command.hpp"
+#include "store.hpp"
 
 bool is_loggable_command(const Command& command);
 void log_append(const std::string& filename, const Command& command);

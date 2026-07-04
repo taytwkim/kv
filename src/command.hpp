@@ -1,6 +1,6 @@
 #pragma once
-#include "store.hpp"
 #include "response.hpp"
+#include "store.hpp"
 
 enum class CommandType {
     GET,

@@ -1,7 +1,7 @@
-#include "store.hpp"
 #include "command.hpp"
-#include "response.hpp"
 #include "log.hpp"
+#include "response.hpp"
+#include "store.hpp"
 #include <iostream>
 
 int main() {
