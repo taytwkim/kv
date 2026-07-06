@@ -1,18 +1,23 @@
 CXX = clang++
 CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
 
-SRC = src/main.cpp src/store.cpp src/command.cpp src/response.cpp src/log.cpp
-TARGET = store
+SHARED_SRC = src/store.cpp src/command.cpp src/response.cpp src/log.cpp
 
-.PHONY: all run clean
+.PHONY: all run-repl run-server clean
 
-all: $(TARGET)
+all: repl server
 
-$(TARGET): $(SRC)
-	$(CXX) $(CXXFLAGS) $(SRC) -o $(TARGET)
+repl: src/main.cpp $(SHARED_SRC)
+	$(CXX) $(CXXFLAGS) src/main.cpp $(SHARED_SRC) -o repl
 
-run: $(TARGET)
-	./$(TARGET)
+server: src/run.cpp src/server.cpp $(SHARED_SRC)
+	$(CXX) $(CXXFLAGS) src/run.cpp src/server.cpp $(SHARED_SRC) -o server
+
+run-repl: repl
+	./repl
+
+run-server: server
+	./server
 
 clean:
-	rm -f $(TARGET)
+	rm -f repl server
