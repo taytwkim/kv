@@ -2,6 +2,7 @@
 #include <fstream>
 
 bool is_loggable_command(const Command& command) {
+    // We don't log GET or HAS.
     return command.type == CommandType::SET || command.type == CommandType::REMOVE;
 }
 
