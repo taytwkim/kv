@@ -67,6 +67,7 @@ Response apply_command(KV_Store& store, const Command& command) {
         }
         
         store.set(command.key.value(), command.value.value());
+
         return {ResponseStatus::OK, std::nullopt}; 
     }
 
@@ -85,7 +86,6 @@ Response apply_command(KV_Store& store, const Command& command) {
     }
 
     else if (command.type == CommandType::REMOVE) {
-        
         if (!command.key.has_value()) {
             return {ResponseStatus::Error, std::nullopt};
         }

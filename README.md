@@ -22,14 +22,25 @@ make server
 make run-server
 ```
 
+* A `store.log` file will be created in the top-level directory to log `SET` and `REMOVE`.
+
 2. Open a second terminal and use `nc` to open a connection.
 
 ```shell
 nc localhost 4000
 ```
 
-* A `store.log` file will be created in the top-level directory to log `SET` and `REMOVE`.
+3. Type in requests.
+
+```text
+❯ nc localhost 4000
+SET name joel
+OK
+GET name
+OK: joel
+...
+```
 
 ## Platform
 
-Currently tested on macOS.
+Tested on macOS.

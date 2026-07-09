@@ -26,5 +26,6 @@ bool KV_Store::remove(const std::string& key) {
     }
     
     store.erase(it);
+    
     return true;
 }

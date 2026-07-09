@@ -4,7 +4,8 @@ std::string response_to_string(const Response& response) {
     if (response.status == ResponseStatus::OK) {
         if (response.result.has_value()) {
             return "OK: " + response.result.value();
-        }       
+        }
+        
         return "OK";
     }
 

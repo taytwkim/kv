@@ -14,5 +14,6 @@ int main (int argc, char* argv[]) {
     }
     
     run(port, log_file);
+    
     return 0;
 }

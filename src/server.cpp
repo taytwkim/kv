@@ -82,18 +82,15 @@ namespace {
                 // Remove the processed command, including the '\n', from pending.
                 pending.erase(0, newline_pos + 1);
                 std::string response;
-
                 {
                     // Only one thread will enter this block at a time.
                     std::lock_guard<std::mutex> lock(mutex);
                     response = handle_request(store, log_file, request);
                     // Unlocked at the end of the block.
                 }
-                
                 send(client_fd, response.c_str(), response.size(), 0);
             }
-        }
-        
+        }        
         close(client_fd);
         std::cout << "Client disconnected\n";
     }
