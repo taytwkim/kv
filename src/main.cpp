@@ -27,7 +27,9 @@ int main() {
         if (response.status == ResponseStatus::OK) {
             log_append(log_file, command);
         }
+
         std::cout << response_to_string(response) << "\n";
     }
+    
     return 0;
 }

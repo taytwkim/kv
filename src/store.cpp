@@ -6,6 +6,7 @@ std::optional<std::string> KV_Store::get(const std::string& key) const {
     if (it == store.end()) {
         return std::nullopt;
     }
+
     return it->second;
 }
 
@@ -23,6 +24,7 @@ bool KV_Store::remove(const std::string& key) {
     if (it == store.end()) {
         return false;
     }
+    
     store.erase(it);
     return true;
 }

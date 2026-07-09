@@ -1,13 +1,13 @@
 #include "log.hpp"
 #include <fstream>
 
-bool is_loggable_command(const Command& command) {
+bool loggable(const Command& command) {
     // We don't log GET or HAS.
     return command.type == CommandType::SET || command.type == CommandType::REMOVE;
 }
 
 void log_append(const std::string& filename, const Command& command) {
-    if (!is_loggable_command(command)) {
+    if (!loggable(command)) {
         return;
     }
 
@@ -22,16 +22,19 @@ void log_append(const std::string& filename, const Command& command) {
         if (!command.key.has_value() || !command.value.has_value()) {
             return;
         }
+
         out << "SET "
             << command.key.value()
             << " "
             << command.value.value()
             << "\n";
     }
+
     else if (command.type == CommandType::REMOVE) {
         if (!command.key.has_value()) {
             return;
         }
+        
         out << "REMOVE "
             << command.key.value()
             << "\n";

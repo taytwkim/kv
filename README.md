@@ -28,7 +28,7 @@ make run-server
 nc localhost 4000
 ```
 
-* A `store.log` file will be created in the top-level directory to record `SET` and `REMOVE` commands.
+* A `store.log` file will be created in the top-level directory to log `SET` and `REMOVE`.
 
 ## Platform
 

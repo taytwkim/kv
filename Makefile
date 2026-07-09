@@ -1,4 +1,4 @@
-CXX = clang++
+CXX = c++
 CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
 
 SHARED_SRC = src/store.cpp src/command.cpp src/response.cpp src/log.cpp
