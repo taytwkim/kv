@@ -43,4 +43,4 @@ OK: joel
 
 ## Platform
 
-Tested on macOS.
+Tested on Linux and macOS. Built with C++17.
